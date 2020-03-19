@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:lojavirtual/screens/login_screen.dart';
 import 'package:lojavirtual/tiles/drawer_tile.dart';
 
 class CustomDrawer extends StatelessWidget {
-
   final PageController pageController;
 
   CustomDrawer(this.pageController);
@@ -45,22 +45,22 @@ class CustomDrawer extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text("Olá,",
+                          Text(
+                            "Olá,",
                             style: TextStyle(
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold
-                            ),
+                                fontSize: 18.0, fontWeight: FontWeight.bold),
                           ),
                           GestureDetector(
                             child: Text(
                               "Entre ou cadastre-se",
                               style: TextStyle(
                                   color: Theme.of(context).primaryColor,
-                                  fontWeight: FontWeight.bold
-                              ),
+                                  fontWeight: FontWeight.bold),
                             ),
                             onTap: () {
-
+                              Navigator.of(context).push(
+                                MaterialPageRoute(builder: (context) => LoginScreen())
+                              );
                             },
                           )
                         ],
@@ -73,7 +73,8 @@ class CustomDrawer extends StatelessWidget {
               DrawerTile(Icons.home, "Início", pageController, 0),
               DrawerTile(Icons.list, "Produtos", pageController, 1),
               DrawerTile(Icons.location_on, "Lojas", pageController, 2),
-              DrawerTile(Icons.playlist_add_check, "Meus Pedidos", pageController, 3),
+              DrawerTile(
+                  Icons.playlist_add_check, "Meus Pedidos", pageController, 3),
             ],
           )
         ],
